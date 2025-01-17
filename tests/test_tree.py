@@ -38,11 +38,20 @@ class TestTreeStore(unittest.TestCase):
         self.assertIsNone(self.ts.get_item(-1))
 
     def test_get_all_parent(self):
-        expected = [{"id":4,"parent":2,"type":"test"},{"id":2,"parent":1,"type":"test"},{"id":1,"parent":"root"}]
+        expected = [
+            {"id": 4, "parent": 2, "type": "test"},
+            {"id": 2, "parent": 1, "type": "test"},
+            {"id": 1, "parent": "root"},
+        ]
         self.assertListEqual(self.ts.get_all_parents(7), expected)
 
     def test_get_children(self):
-        expected = [{"id":7,"parent":4,"type":None},{"id":8,"parent":4,"type":None}]
+        expected = [
+            {"id": 7, "parent": 4, "type": None},
+            {"id": 8, "parent": 4, "type": None},
+        ]
         self.assertListEqual(self.ts.get_children(4), expected)
+
+
 if __name__ == "__main__":
     unittest.main()
